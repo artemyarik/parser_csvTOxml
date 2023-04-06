@@ -1,0 +1,20 @@
+.forms {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.formBlockOut {
+    padding-left: 12px;
+}
+
+.formin{
+    width:700px; 
+    height:400px;
+}
+
+.formout{
+    width:1000px; 
+    height:1200px;
+}
+
