@@ -5,16 +5,24 @@
 }
 
 .formBlockOut {
-    padding-left: 12px;
+    margin-left: 12px;
 }
 
 .formin{
-    width:700px; 
-    height:400px;
+    width: 20%;
+    min-width:500px; 
+    min-height:300px;
 }
 
 .formout{
-    width:1000px; 
-    height:1200px;
+    width: 35%;
+    min-width:800px; 
+    min-height:1000px;
 }
 
+.descq{
+    width: 10%;
+    min-width: 350px;
+    min-height: 20px;
+    margin: 2% 0;
+}

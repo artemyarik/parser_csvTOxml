@@ -10,13 +10,16 @@
 <body>
     <div class="forms">
         <div class="formBlockIn">
-            <textarea class="formin" id="textin" rows="30"></textarea>
+            <textarea class="formin" id="textin" rows="30" placeholder="Содержимое CSV"></textarea>
+            <br><textarea class="descq" id="descquiz" type="text" placeholder="Укажите описание квиза(необязательно)"></textarea>
+            <br><input id="butt" type="submit" value="Форматировать">
+            
         </div>
         <div class="formBlockOut">
-            <textarea class="formout" id="textout" rows="60"></textarea>
+            <textarea class="formout" id="textout" rows="60" readonly></textarea>
         </div>
     </div>
-    <input id="butt" type="submit" value="Форматировать">
+    
     <script src="parser3.js"></script>
 </body>
 </html>
