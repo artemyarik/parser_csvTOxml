@@ -1,7 +1,18 @@
+.header{
+    margin: 10px 50px 20px 0;
+    font: optional;
+    font-size: 30px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+.lablecsv{
+    font-size: 20px;
+}
+
 .forms {
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: row;  
 }
 
 .formBlockOut {
@@ -24,5 +35,4 @@
     width: 10%;
     min-width: 350px;
     min-height: 20px;
-    margin: 2% 0;
 }

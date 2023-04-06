@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="pars.css">
 </head>
 <body>
+    <header class="header">
+        Parser CSV to XML
+    </header>
     <div class="forms">
         <div class="formBlockIn">
+            <div class="lablecsv">Содержимое CSV</div>
             <textarea class="formin" id="textin" rows="30" placeholder="Содержимое CSV"></textarea>
+            <div class="lablecsv">Описание квиза</div>
             <br><textarea class="descq" id="descquiz" type="text" placeholder="Укажите описание квиза(необязательно)"></textarea>
             <br><input id="butt" type="submit" value="Форматировать">
             
         </div>
         <div class="formBlockOut">
+            <div class="lablecsv">Результат</div>
             <textarea class="formout" id="textout" rows="60" readonly></textarea>
         </div>
     </div>
