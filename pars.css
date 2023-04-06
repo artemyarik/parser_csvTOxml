@@ -22,13 +22,12 @@
 .formin{
     width: 20%;
     min-width:500px; 
-    min-height:300px;
+    min-height:200px;
 }
 
 .formout{
-    width: 35%;
-    min-width:800px; 
-    min-height:1000px;
+    width:700px; 
+    height:500px;
 }
 
 .descq{

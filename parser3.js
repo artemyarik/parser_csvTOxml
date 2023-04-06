@@ -1,14 +1,31 @@
 let input = document.getElementById('textin');
 let output = document.getElementById('textout');
 let butt = document.getElementById('butt');
+let buttonCopy = document.getElementById("buttcopy");
+buttonCopy.style.display='none'
 
 butt.onclick = function() {
-    var value = input.value;
-    output.textContent = successFunction(input.value);
+    buttonCopy.style.display=''
+    var value = input.value;  
+    output.textContent = parsefun(input.value);
 };
 
-function successFunction(data) {
-    let csvData = input.value;
+function test(){
+    var quizes = value.split(/\r?\n|\r/);
+    for (var k = 1; i < quizes.length-1; k++) {
+        while(quizes[k-1].startsWith(quizes[k])){
+            csv[k-1] += quizes[k-1]
+        }
+    };
+}
+
+buttonCopy.onclick = function(){
+    output.select();
+    navigator.clipboard.writeText(output.value);
+}
+
+function parsefun(data) {
+    let csvData = data;
     var allRows = csvData.split(/\r?\n|\r/);
     var table = `<?xml version="1.0" encoding="utf-8"?><wpProQuiz><header version="0.28" exportVersion="1" ld_version="4.3.0.2" LEARNDASH_SETTINGS_DB_VERSION="2.5"/><data>`;
     for (var i = 0; i < allRows.length; i++) {
@@ -31,7 +48,6 @@ function successFunction(data) {
                 table += '</questionText>';
                 table += '<correctMsg><![CDATA[]]></correctMsg><incorrectMsg><![CDATA[]]></incorrectMsg><tipMsg enabled="false"><![CDATA[]]></tipMsg><category/><correctSameText>false</correctSameText><showPointsInBox>false</showPointsInBox><answerPointsActivated>true</answerPointsActivated><answerPointsDiffModusActivated>false</answerPointsDiffModusActivated><disableCorrect>false</disableCorrect><answers><answer points="1" correct="false"><answerText html="false"><![CDATA[<p><strong><span class="description-red">{</span> [Да] [Частично] [Нет] <span class="description-red">}</span></strong></p>]]></answerText><stortText html="false"><![CDATA[]]></stortText></answer></answers></question>';
                 table += `</questions><post><post_title><![CDATA[${rowCells[0]}]]></post_title><post_content><![CDATA[<!-- wp:paragraph -->`;
-
             }
             else{
                 table += '<questionText>';
