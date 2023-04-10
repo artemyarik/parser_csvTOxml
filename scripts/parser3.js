@@ -93,6 +93,13 @@ function test(value){
 // Парсер
 function parsefun(data) {
     let csvData = data;
+    let typeRepit = '0',
+    cookieRepit = 'false',
+    quizRunOnce = 'false',
+    retryRestrictions = '',
+    quizRunOnceType = '',
+    quizRunOnceCookie = '',
+    repitnumbers = '';
     questPerPage = questionsPage();
     quizModus = questionsQuizModus();
     desc = descriptionQuiz();
