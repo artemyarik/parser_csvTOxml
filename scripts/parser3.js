@@ -26,6 +26,8 @@ let typeRepit = '0',
     quizRunOnceCookie = '',
     repitnumbers = '';
 
+
+
 buttonCopy.style.display='none';
 buttonDownload.style.display='none';
 questionPerpageBlock.style.display='none';
@@ -35,9 +37,23 @@ repitblock.style.display='none';
 butt.onclick = function() {
     buttonCopy.style.display='';
     buttonDownload.style.display='';
-    var value = input.value;
-    test(value);  
-    output.textContent = parsefun(input.value);
+    if(input.value !== ''){
+        var value = input.value;
+        test(value);  
+        output.textContent = parsefun(input.value);
+    }
+    else{
+        let filecsv = document.getElementById('filecsv').file;    
+        let reader = new FileReader();
+        reader.readAsText(filecsv);
+        reader.onload = function() {
+            output.textContent = parsefun(reader.result);
+        }
+        reader.onerror = function() {
+            alert('Ошибка загрузки файла');
+        }
+    }
+    
 };
 
 // Кнопка копирование результат
@@ -79,13 +95,16 @@ buttonDownload.addEventListener('click', function() {
 function test(value){
     var quizes = value.split(/\r?\n|\r/);
     for (var k = 0; k < quizes.length; k++) {
-        var quizesNames = quizes[k].split(';', 1);
-        console.log(quizesNames);
-        for (var z = 1; z < quizesNames.length-1; z++){
-            if(quizesNames[z-1] == quizesNames[z]){
+        var quizesNames = quizes[k].split(';');
+        for (var j = 1; j < quizesNames.length-1; j++) {
+            if(quizesNames[j-1] === quizesNames[j]){
                 //csv[k-1] += quizes[k-1]
-                console.log(z-1);
+                console.log('1');
             }
+            else{
+                console.log('2');
+            }
+            console.log('3');
         }
     }
 };
@@ -113,8 +132,7 @@ function parsefun(data) {
         quizRunOnceType = '1',
         quizRunOnceCookie = 'true';
         repitnumbers = repitnum.value;
-    }
-    
+    }  
     var allRows = csvData.split(/\r?\n|\r/);
     var table = `<?xml version="1.0" encoding="utf-8"?><wpProQuiz><header version="0.28" exportVersion="1" ld_version="4.3.0.2" LEARNDASH_SETTINGS_DB_VERSION="2.5"/><data>`;
     for (var i = 0; i < allRows.length; i++) {
