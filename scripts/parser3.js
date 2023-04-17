@@ -37,23 +37,9 @@ repitblock.style.display='none';
 butt.onclick = function() {
     buttonCopy.style.display='';
     buttonDownload.style.display='';
-    if(input.value != ''){
-        var value = input.value;
-        test(value);  
-        output.textContent = parsefun(input.value);
-    }
-    else{
-        let filecsv = document.getElementById('filecsv').file;    
-        let reader = new FileReader();
-        reader.readAsText(filecsv);
-        reader.onload = function() {
-            output.textContent = parsefun(reader.result);
-        };
-        reader.onerror = function() {
-            alert('Ошибка загрузки файла');
-        };
-    }
-    
+    var value = input.value;
+    test(value);  
+    output.textContent = parsefun(input.value);    
 };
 
 // Кнопка копирование результат
