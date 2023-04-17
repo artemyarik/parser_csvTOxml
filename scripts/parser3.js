@@ -37,7 +37,7 @@ repitblock.style.display='none';
 butt.onclick = function() {
     buttonCopy.style.display='';
     buttonDownload.style.display='';
-    if(input.value !== ''){
+    if(input.value != ''){
         var value = input.value;
         test(value);  
         output.textContent = parsefun(input.value);
@@ -48,10 +48,10 @@ butt.onclick = function() {
         reader.readAsText(filecsv);
         reader.onload = function() {
             output.textContent = parsefun(reader.result);
-        }
+        };
         reader.onerror = function() {
             alert('Ошибка загрузки файла');
-        }
+        };
     }
     
 };
@@ -99,10 +99,10 @@ function test(value){
         for (var j = 1; j < quizesNames.length-1; j++) {
             if(quizesNames[j-1] === quizesNames[j]){
                 //csv[k-1] += quizes[k-1]
-                console.log('1');
+                console.log(qf[j] + "1");
             }
             else{
-                console.log('2');
+                console.log('ben');
             }
             console.log('3');
         }
@@ -237,4 +237,47 @@ function download(file, text) {
     element.click();
  
     document.body.removeChild(element);
+}
+
+//загрузка csv
+document.getElementById('btnOpen').onclick = function(){
+    openFile(function(txt){
+        input.value = txt; 
+    });
+}
+function openFile(callBack){
+  var element = document.createElement('input');
+  element.setAttribute('type', "file");
+  element.setAttribute('id', "btnOpenFile");
+  element.onchange = function(){
+      readText(this,callBack);
+      document.body.removeChild(this);
+      }
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+}
+
+function readText(filePath,callBack) {
+    var reader;
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        reader = new FileReader();
+    } else {
+        alert('The File APIs are not fully supported by your browser. Fallback required.');
+        return false;
+    }
+    var output = ""; //placeholder for text output
+    if(filePath.files && filePath.files[0]) {           
+        reader.onload = function (e) {
+            output = e.target.result;
+            callBack(output);
+        };//end onload()
+        reader.readAsText(filePath.files[0]);
+    }//end if html5 filelist support
+    else { //this is where you could fallback to Java Applet, Flash or similar
+        return false;
+    }       
+    return true;
 }
