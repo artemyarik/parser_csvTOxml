@@ -40,7 +40,7 @@ butt.onclick = function() {
     buttonCopy.style.display='';
     buttonDownload.style.display='';
     var value = input.value;
-    test(value);  
+    //test(value);  
     output.textContent = parsefun(input.value);    
 };
 
@@ -79,7 +79,7 @@ buttonDownload.addEventListener('click', function() {
     download(filename, text);
 }, false);
 
-// Пока в разработке работа с несколькими квизами в одном csv файле
+/* Пока в разработке работа с несколькими квизами в одном csv файле
 function test(value){
     var quizes = value.split(/\r?\n|\r/);
     for (var k = 0; k < quizes.length; k++) {
@@ -96,7 +96,7 @@ function test(value){
         }
     }
 };
-
+*/
 // Парсер
 function parsefun(data) {
     let csvData = data;
